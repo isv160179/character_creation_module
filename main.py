@@ -4,6 +4,11 @@ from graphic_arts.start_game_banner import run_screensaver
 
 
 def attack(char_name: str, char_class: str) -> str:
+    """
+    Функция случайным образом в зависимости от персонажа 
+    рассчитывает количество нанесенного урона во время атаки 
+    и возвращает строку с этими данными.
+    """
     if char_class == 'warrior':
         return (f'{char_name} нанёс противнику урон, равный '
                 f'{5 + randint(3, 5)}')
@@ -15,6 +20,11 @@ def attack(char_name: str, char_class: str) -> str:
 
 
 def defence(char_name: str, char_class: str) -> str:
+    """
+    Функция случайным образом в зависимости от персонажа 
+    рассчитывает количество заблокированного урона во время защиты 
+    и возвращает строку с этими данными. 
+    """
     if char_class == 'warrior':
         return f'{char_name} блокировал {10 + randint(5, 10)} ед. урона'
     if char_class == 'mage':
@@ -23,6 +33,12 @@ def defence(char_name: str, char_class: str) -> str:
 
 
 def special(char_name: str, char_class: str) -> str:
+    """
+    Функция в зависимости от персонажа 
+    рассчитывает количество восстановленых очков навыка 
+    во время применения суперсилы 
+    и возвращает строку с этими данными. 
+    """
     if char_class == 'warrior':
         return (f'{char_name} применил специальное умение '
                 f'«Выносливость {80 + 25}»')
@@ -32,6 +48,10 @@ def special(char_name: str, char_class: str) -> str:
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    """
+    Функция принимает на вход действие игрока 
+    и вызывает соответствующую функцию. 
+    """
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — великий мастер ближнего боя.')
     if char_class == 'mage':
@@ -56,8 +76,12 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def choice_char_class() -> str:
-    approve_choice: str = ''
-    char_class: str = ''
+    """
+    Функция возвращает название персонажа игрока 
+    в зависимости от его выбора. 
+    """
+    approve_choice: str = None
+    char_class: str = None
     while approve_choice != 'y':
         char_class = input('Введи название персонажа, '
                            'за которого хочешь играть: Воитель — warrior, '
@@ -77,20 +101,6 @@ def choice_char_class() -> str:
     return char_class
 
 
-# def main() -> None:
-#     run_screensaver()
-#     print('Приветствую тебя, искатель приключений!')
-#     print('Прежде чем начать игру...')
-#     char_name: str = input('...назови себя: ')
-#     print(f'Здравствуй, {char_name}! '
-#           'Сейчас твоя выносливость — 80, атака — 5 и защита — 10.')
-#     print('Ты можешь выбрать один из трёх путей силы:')
-#     print('Воитель, Маг, Лекарь')
-#     char_class: str = choice_char_class()
-#     print(start_training(char_name, char_class))
-#
-#
-# main()
 if __name__ == '__main__':
     run_screensaver()
     print('Приветствую тебя, искатель приключений!')
